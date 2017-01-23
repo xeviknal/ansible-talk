@@ -1,0 +1,13 @@
+[balancers]
+b1.stratya.com ansible_host=192.168.56.13 hostname=b1.stratya.com ansible_user=vagrant
+
+[frontends]
+f1.stratya.com ansible_host=192.168.56.14 hostname=f1.stratya.com ansible_user=vagrant
+
+[dbs]
+db1.stratya.com ansible_host=192.168.56.15 hostname=db1.stratya.com ansible_user=vagrant
+
+[production:children]
+balancers
+frontends
+dbs
