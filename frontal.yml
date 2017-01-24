@@ -1,0 +1,26 @@
+---
+- name: Provisioning a frontal
+  become: true
+  hosts: frontends
+  vars:
+    http_port: 80
+  tasks:
+    - name: apt update
+      apt: update_cache=true
+    - name: install essential system libraries
+      apt: name={{ item }} state=present
+      with_items:
+        - vim
+        - htop
+        - git-core
+        - curl
+        - nginx
+    - name: setup nginx site
+      template: src=templates/nginx/stratya.com.j2 dest=/etc/nginx/sites-available/stratya.com.conf
+      notify:
+      - restart nginx
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
