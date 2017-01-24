@@ -1,0 +1,12 @@
+- name: apt-get update
+  apt: update_cache=yes
+
+- name: Install common essentials
+  become: true
+  apt: name={{ item }} state=present
+  with_items:
+    - build-essential
+    - curl
+    - git-core
+    - vim
+    - sl
