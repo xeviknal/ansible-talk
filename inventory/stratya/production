@@ -7,14 +7,7 @@ f1.stratya.com ansible_host=192.168.56.14 hostname=f1.stratya.com
 [dbs]
 db1.stratya.com ansible_host=192.168.56.15 hostname=db1.stratya.com
 
-[dbs:vars]
-database_name=stratya
-
 [production:children]
 balancers
 frontends
 dbs
-
-[production:vars]
-ansible_user=vagrant
-app_environment=production
