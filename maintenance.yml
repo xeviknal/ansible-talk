@@ -1,0 +1,6 @@
+---
+- name: Remove frontal from balancing
+  hosts: balancers
+  become: true
+  tasks:
+    - haproxy: state=enabled socket=/var/lib/haproxy/stats host=f1 backend=habackend
