@@ -1,6 +1,7 @@
 ---
 - name: Provisioning a frontal
   become: true
+  strategy: debug
   hosts: frontends
   roles:
     - essentials
