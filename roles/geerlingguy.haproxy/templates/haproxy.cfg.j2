@@ -37,6 +37,10 @@ defaults
   errorfile 503 /etc/haproxy/errors/503.http
   errorfile 504 /etc/haproxy/errors/504.http
 {% endif %}
+   stats enable
+   stats uri /stats
+   stats realm Haproxy\ Statistics
+   stats auth stats:changeit
 
 frontend {{ haproxy_frontend_name }}
     bind {{ haproxy_frontend_bind_address }}:{{ haproxy_frontend_port }}
