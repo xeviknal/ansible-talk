@@ -1,0 +1,8 @@
+---
+- name: Provisioning a balancer
+  become: true
+  strategy: debug
+  hosts: balancers
+  roles:
+    - essentials
+    - geerlingguy.haproxy
