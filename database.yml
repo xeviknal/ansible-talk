@@ -1,0 +1,6 @@
+---
+- name: installing database server
+  hosts: dbs
+  become: yes
+  roles:
+    - geerlingguy.mysql

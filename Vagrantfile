@@ -25,6 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      vb.customize ["modifyvm", :id, "--memory", "512"]
     end
   end
+
   config.vm.define :database do |db|
 	  # Every Vagrant virtual environment requires a box to build off of.
 	  db.vm.box = "debian-8.2.0-amd64_virtualbox.box"
