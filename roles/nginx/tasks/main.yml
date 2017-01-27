@@ -4,6 +4,6 @@
   with_items:
     - nginx
 - name: setup nginx site
-  template: src=templates/nginx/stratya.com.j2 dest=/etc/nginx/sites-available/stratya.com.conf
+  template: src=roles/nginx/templates/nginx/stratya.com.j2 dest=/etc/nginx/sites-available/stratya.com.conf
   notify:
   - restart nginx
